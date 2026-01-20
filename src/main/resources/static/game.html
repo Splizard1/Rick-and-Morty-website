@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the Character</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-title">Rick & Morty Hub</div>
+    <div class="nav-links">
+        <a href="index.html">Search</a>
+        <a href="game.html">Game</a>
+    </div>
+</nav>
+
+<div class="game-container">
+
+    <h1>Guess the Character</h1>
+
+    <div id="image-container">
+        <img id="character-image" class="blur-heavy" alt="Character image">
+    </div>
+
+
+    <div id="hints">
+        <p id="species" class="hidden"></p>
+        <p id="status" class="hidden"></p>
+        <p id="gender" class="hidden"></p>
+    </div>
+
+    <div id="name-display">?????</div>
+
+    <input type="text" id="guess-input" placeholder="Enter character name">
+    <button onclick="submitGuess()">Guess</button>
+
+    <div class="buttons">
+        <button onclick="revealHint()">Reveal Hint</button>
+        <button onclick="revealLetter()">Reveal Letter</button>
+        <button onclick="startGame()">New Game</button>
+    </div>
+
+    <p id="result"></p>
+
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
