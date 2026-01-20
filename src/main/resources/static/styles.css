@@ -234,3 +234,63 @@ button:hover {
     filter: blur(0);
 }
 
+.autocomplete-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1e203c;
+    border: 2px solid #39ff14;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #2a2d4a;
+    transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+    background: #2a2d4a;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid #39ff14;
+}
+
+.suggestion-item .suggestion-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestion-item .suggestion-name {
+    color: #f0f0f0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.suggestion-item .suggestion-species {
+    color: #999;
+    font-size: 12px;
+}

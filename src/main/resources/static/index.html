@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap"
           rel="stylesheet">
-
 </head>
 <body>
 
@@ -21,16 +20,19 @@
 <h1>Rick and Morty Character Search</h1>
 
 <div class="search-container">
-    <input
-            type="text"
-            id="nameInput"
-            placeholder="Enter character name (e.g. rick)"
-    />
+    <div class="autocomplete-wrapper">
+        <input
+                type="text"
+                id="nameInput"
+                placeholder="Enter character name (e.g. rick)"
+                autocomplete="off"
+        />
+        <div id="suggestions" class="suggestions hidden"></div>
+    </div>
     <button onclick="searchCharacter()">Search</button>
 </div>
 
 <div id="results"></div>
-
 
 <div id="characterModal" class="modal hidden">
     <div class="modal-content">
@@ -46,7 +48,6 @@
         <p><strong>Location:</strong> <span id="modalLocation"></span></p>
     </div>
 </div>
-
 
 <script src="app.js"></script>
 </body>

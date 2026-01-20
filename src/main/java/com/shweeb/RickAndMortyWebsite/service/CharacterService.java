@@ -18,7 +18,6 @@ public class CharacterService {
     }
 
     public List<CharacterResponseDto> getCharactersByName(String name) {
-
         List<CharacterResultDto> characters =
                 apiClient.searchAllCharactersByName(name);
 
