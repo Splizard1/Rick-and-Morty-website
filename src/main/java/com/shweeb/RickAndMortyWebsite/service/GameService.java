@@ -30,12 +30,24 @@ public class GameService {
     public GameCharacterDto startGame(HttpSession session) {
 
         CharacterResultDto character = fetchRandomCharacter();
+        String name = character.getName();
 
-        session.setAttribute(SESSION_ANSWER, character.getName());
+        // Map of index -> character for all non-letter/digit characters
+        Map<Integer, Character> revealedCharacters = new HashMap<>();
+        for (int i = 0; i < name.length(); i++) {
+            char c = name.charAt(i);
+            // Reveal anything that's not a letter or number
+            if (!Character.isLetterOrDigit(c)) {
+                revealedCharacters.put(i, c);
+            }
+        }
+
+        session.setAttribute(SESSION_ANSWER, name);
         session.setAttribute(SESSION_REVEALED, new HashSet<Integer>());
 
         return new GameCharacterDto(
-                character.getName().length(),
+                name.length(),
+                revealedCharacters,
                 character.getImage(),
                 character.getSpecies(),
                 character.getStatus(),

@@ -46,8 +46,9 @@ function openModal(character) {
     document.getElementById("modalStatus").innerText = character.status;
     document.getElementById("modalSpecies").innerText = character.species;
     document.getElementById("modalGender").innerText = character.gender;
-    document.getElementById("modalOrigin").innerText = character.origin;
-    document.getElementById("modalLocation").innerText = character.location;
+    document.getElementById("modalOrigin").innerText = character.origin.name;
+    document.getElementById("modalLocation").innerText = character.location.name;
+
 
     document.getElementById("characterModal").classList.remove("hidden");
 }

@@ -46,7 +46,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,13 +58,34 @@ h1 {
 }
 
 .modal-content {
-    background: white;
-    padding: 20px;
     width: 300px;
     max-width: 90%;
-    border-radius: 8px;
     position: relative;
     text-align: center;
+    background: #1e203c; /* dark blue/purple background */
+    color: #f0f0f0; /* light text */
+    padding: 25px;
+    border: 2px solid #39ff14; /* neon green border */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+
+.modal-content h2 {
+    color: #39ff14;
+    margin: 15px 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.modal-content p {
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.modal-content strong {
+    color: #39ff14;
+    margin-right: 5px;
 }
 
 .modal-content img {
@@ -169,6 +190,16 @@ button:hover {
     font-size: 24px;
     letter-spacing: 4px;
     margin: 20px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    white-space: pre-wrap; /* Allows wrapping while preserving spaces */
+    line-height: 1.5;
+}
+
+#name-display.long-name {
+    font-size: 18px;
+    letter-spacing: 2px;
 }
 
 #image-container {
