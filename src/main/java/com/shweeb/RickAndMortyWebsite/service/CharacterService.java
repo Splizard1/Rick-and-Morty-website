@@ -37,4 +37,5 @@ public class CharacterService {
                 character.getImage()
         );
     }
+
 }

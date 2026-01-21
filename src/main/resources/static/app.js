@@ -1,5 +1,25 @@
 let debounceTimer;
 
+function randomCharacter() {
+    document.getElementById("results").innerHTML = "";
+
+    const id = Math.floor(Math.random() * 826) + 1;
+
+    fetch(`/api/characters/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Character not found");
+            }
+            return response.json();
+        })
+        .then(character => renderResults([character]))
+        .catch(error => {
+            document.getElementById("results").innerHTML =
+                `<p>${error.message}</p>`;
+        });
+}
+
+
 function searchCharacter(characterName) {
     const name = characterName || document.getElementById("nameInput").value;
 
@@ -133,14 +153,14 @@ function closeModal() {
     document.getElementById("characterModal").classList.add("hidden");
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.getElementById("nameInput");
     const modal = document.getElementById("characterModal");
 
     if (nameInput) {
         nameInput.addEventListener("input", handleInput);
 
-        nameInput.addEventListener("keypress", function(e) {
+        nameInput.addEventListener("keypress", function (e) {
             if (e.key === "Enter") {
                 searchCharacter();
             }
@@ -148,14 +168,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if (modal) {
-        modal.addEventListener("click", function(e) {
+        modal.addEventListener("click", function (e) {
             if (e.target.id === "characterModal") {
                 closeModal();
             }
         });
     }
 
-    document.addEventListener("click", function(e) {
+    document.addEventListener("click", function (e) {
         if (!e.target.closest(".autocomplete-wrapper")) {
             hideSuggestions();
         }
